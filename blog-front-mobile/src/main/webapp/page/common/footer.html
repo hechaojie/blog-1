@@ -1,0 +1,15 @@
+<br>
+<#macro headerPage currentPage>
+	<nav class="navbar navbar-fixed-bottom">
+	   <div class="text-center">
+			<a href="http://pc.hecj.top">电脑版</a>
+	  </div>
+	  <div class="container navbar-default">
+			<ul class="nav nav-pills container" style="margin-top: 4px;">
+			  <li class="<#if currentPage ?? && (currentPage=='index')>active</#if>" style="width: 34%"><a class="center-text" href="/">首页</a></li>
+			  <li class="<#if currentPage ?? && (currentPage=='wo')>active</#if>" style="width: 34%"><a class="center-text" href="/p/u">我</a></li>
+			  <li class="<#if currentPage ?? && (currentPage=='us')>active</#if>" style="width: 30%"><a class="center-text" href="/p/us">关于</a></li>
+			</ul>
+	  </div>
+	</nav>
+</#macro>

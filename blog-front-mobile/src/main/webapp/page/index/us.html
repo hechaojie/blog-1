@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <title>随笔-关于（移动版）</title>
+   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<#include "/page/include/include.html">	
+	<link rel="stylesheet" type="text/css" href="/css/date.css">
+</head>
+<body>
+<div class="container">
+	
+	<input type="text" id="J-xl">
+	
+	<#include "/page/common/footer.html">
+	<@headerPage currentPage="us"/>
+	
+</div>
+	<script type="text/javascript" src="/js/page/common/data.js"></script>
+	<script type="text/javascript">
+		laydate({
+	        elem: '#J-xl'
+	    });
+	</script>
+</body>
+</html>

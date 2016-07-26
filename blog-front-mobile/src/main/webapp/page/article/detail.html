@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <title>${article.title!}（移动版）</title>
+   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<#include "/page/include/include.html">
+<script type="text/javascript" src="/js/page/common/paginate.js?v=0.0.1"></script>
+</head>
+<body>
+<div style='margin:0 auto;display:none;'>
+   	  <img src="${STATIC_URL!}images/logo_300.png"/>
+</div>
+<div class="container">
+	
+	<div class="container">
+  		<h1>${article.title!}</h1>
+  		<hr>
+		<div class="row">
+	      <div class="col-xs-4 col-sm-2" style="padding: 0px">
+	      	类型:
+	   			<#if articleTypeList ??>
+					<#list articleTypeList as at>
+						<#if article.type ?? && article.type == at.id>
+							${at.name}
+						</#if>
+					</#list>
+				</#if>
+	      </div>
+	      <div class="col-xs-8 col-sm-4" style="padding: 0px">
+	      	作者:${author.nickname!}
+	      </div>
+	      
+	      <div class="col-xs-8 col-sm-4" style="padding: 0px">
+	      		<#setting datetime_format="yyyy-MM-dd HH:mm:ss"/>
+				<#if article.createAt ??>
+					时间：${article.createAt?number_to_datetime}
+				</#if>
+	      </div>      
+	      <div class="col-xs-4 col-sm-2" style="padding: 0px">
+	      	${article.commentCount!}条评论
+	      </div>  
+	   </div>
+	</div>
+	<br>
+	<#if articleContentList ??>
+	<#list articleContentList as ac> 
+		<#if ac.contentType == 3>
+				<#if article.type == 10011>
+					<pre>
+				<#elseif article.type == 10002>
+					 <pre>
+				<#elseif article.type == 10005>
+					 <pre>
+				<#else>
+					 <pre>
+				</#if>
+					${ac.content!}
+				</pre>			
+		<#elseif ac.contentType == 2>
+				<#if ac.content??>
+				<#list ac.content?split(",") as image>
+					<img src="${image!}"/>
+				</#list>
+				</#if>
+		<#elseif ac.contentType == 1>
+			${ac.content!}
+		</#if>
+		<br>
+	</#list>
+	</#if>
+	<br>
+	<br>
+	<#include "/page/common/footer.html">
+	<@headerPage currentPage="index"/>
+  
+</div>
+	
+</body>
+</html>

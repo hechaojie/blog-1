@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC  
+    "-//mybatis.org//DTD Config 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration> 
+	<typeAliases>
+		<typeAlias alias="User" type="com.blog.user.core.entity.User"/>
+		<typeAlias alias="AboutUS" type="com.blog.user.core.entity.AboutUS"/>
+		<typeAlias alias="UserPasswordRecord" type="com.blog.user.core.entity.UserPasswordRecord"/>
+		<typeAlias alias="EmailAuthToken" type="com.blog.user.core.entity.EmailAuthToken"/>
+		<typeAlias alias="PUser" type="com.blog.user.core.entity.PUser"/>
+	</typeAliases> 
+    <mappers>  
+        <mapper resource="sqlmap/user.xml"/>  
+        <mapper resource="sqlmap/aboutUS.xml"/>  
+        <mapper resource="sqlmap/userPasswordRecord.xml"/>  
+        <mapper resource="sqlmap/emailAuthToken.xml"/>  
+        <mapper resource="sqlmap/pUser.xml"/>  
+    </mappers>  
+</configuration>

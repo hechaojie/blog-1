@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <title>我（移动版）</title>
+   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<#include "/page/include/include.html">	
+</head>
+<body>
+<div class="container">
+	
+	<p>${user.email!}</p>
+	<a href="/logout" class="btn btn-default btn-block">注销</a>
+	
+	<#include "/page/common/footer.html">
+	<@headerPage currentPage="wo"/>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <title>随笔-首页（移动版）</title>
+   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<#include "/page/include/include.html">
+<script type="text/javascript" src="/js/page/common/paginate.js?v=0.0.1"></script>
+</head>
+<body>
+<div style='margin:0 auto;display:none;'>
+   	  <img src="${STATIC_URL!}images/logo_300.png"/>
+</div>
+<div class="container">
+	
+	<div class="list-group">
+	   <a href="#" class="list-group-item active">
+	      <h4 class="list-group-item-heading">
+	         	文章列表
+	      </h4>
+	   </a>
+	  	
+	   <#if (articleResult.data?size > 0)>
+	   <#list articleResult.data as a>
+	   <a href="/p/article/detail/${a.id!}" class="list-group-item">
+	      <h4 class="list-group-item-heading">
+	      		<#if a.title?length gt 55>
+					${a.title?substring(0,55)}...
+				<#else>
+					${a.title!}
+				</#if>
+	      </h4>
+	      <p class="list-group-item-text">
+		      	<#if a.nickname ?? >
+		   	   	  	${a.nickname!}
+		   	   	 <#else>
+		   	   		 匿名
+		   	   	</#if>
+		   	   	 &nbsp;|&nbsp;
+		   	   	 <#setting datetime_format="yyyy-MM-dd"/>
+				 <#if a.createAt ??>
+					 ${a.createAt?number_to_datetime}
+				 </#if>
+	      </p>
+	   </a>
+	   </#list>
+	   <div class="text-center">
+	   <ul class="pagination" id="paginate_id" pageNumber="${articleResult.pagination.currPage}" totalPage="${articleResult.pagination.countPage}" totalRow="${articleResult.pagination.countSize}" url="/p/article?page=">
+		  <li><a href="#">&laquo;</a></li>
+		  <li class="active"><a href="#">1</a></li>
+		  <li class="disabled"><a href="#">2</a></li>
+		  <li><a href="#">3</a></li>
+		  <li><a href="#">4</a></li>
+		  <li><a href="#">5</a></li>
+		  <li><a href="#">&raquo;</a></li>
+		</ul>
+		</div>
+		 <br>
+ 	   </#if>
+	    
+	</div>
+	
+	<#include "/page/common/footer.html">
+	<@headerPage currentPage="index"/>
+
+</div>
+</body>
+</html>

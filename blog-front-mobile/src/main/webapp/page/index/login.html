@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <title>随笔-登录（移动版）</title>
+   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<#include "/page/include/include.html">	
+</head>
+<body>
+<div class="container">
+	
+	<#if data ??>
+	<div class="alert alert-danger">
+	   <strong>${data.message!}</strong>
+	</div>
+	</#if>
+	<h1 class="page-header">登录</h1>
+	<form role="form" action="/doLogin" method="post">
+	   <div class="form-group">
+	      <input type="text" class="form-control" id="email" name="email" placeholder="请输入用户名">
+	   </div>
+	   <div class="form-group">
+	      <input type="password" class="form-control" id="passwd" name="passwd" placeholder="请输入密码">
+	   </div>
+	   <button type="submit" class="btn btn-default form-control">登录</button>
+	</form>
+	
+	<#include "/page/common/footer.html">
+	<@headerPage currentPage="wo"/>
+	
+</div>
+</body>
+</html>
